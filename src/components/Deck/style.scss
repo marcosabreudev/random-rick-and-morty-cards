@@ -1,0 +1,30 @@
+.deck-container {
+  display: flex;
+  justify-content: center;
+}
+
+.deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 200px;
+  height: 345px;
+  border: 5px solid #ddd;
+  border-radius: 8px;
+  box-shadow: #fff 0px 3px, #ddd 0px 6px, #fff 0px 9px, #ddd 0px 12px,
+    #fff 0px 15px, #ddd 0px 18px;
+  cursor: pointer;
+  color: rgb(117, 117, 117);
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  &__logo {
+    svg {
+      fill: rgb(117, 117, 117);
+    }
+  }
+}
