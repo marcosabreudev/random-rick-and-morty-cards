@@ -1,9 +1,9 @@
 import { ReactElement } from 'react'
-import { ICard } from '../../types/Card'
+import { ICharacter } from '../../types/Character'
 
 import './style.scss'
 
-export default function Card({ data }: { data: ICard }): ReactElement {
+export default function Card({ data }: { data: ICharacter }): ReactElement {
   return (
     <div className="card">
       <img src={data.image} />
