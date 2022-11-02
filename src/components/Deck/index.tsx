@@ -1,8 +1,35 @@
+import { ICard } from '../../types/Card'
+import { ICharacter } from '../../types/Character'
+import { generateRandomNumbers } from '../../domain/usecases/generate-random-numbers'
+import { RemoteGetCharacters } from '../../data/usecases/get-characters/remote-get-characters'
+import { AxiosHttpClient } from '../../infra/http/axios-http-client'
 import './style.scss'
 
-export default function Deck(): JSX.Element {
+export default function Deck({
+  cards,
+  setCards,
+}: {
+  cards: ICard<ICharacter>
+  setCards: React.Dispatch<React.SetStateAction<ICard<ICharacter> | undefined>>
+}): JSX.Element {
+  function addCard() {
+    let randomId = generateRandomNumbers(1)
+    while (cards[randomId[0]]) {
+      randomId = generateRandomNumbers(1)
+    }
+
+    const url = 'https://rickandmortyapi.com/api/character'
+    const axiosHttpClient = new AxiosHttpClient()
+    const remoteGetCharacters = new RemoteGetCharacters(url, axiosHttpClient)
+
+    remoteGetCharacters.get(randomId).then((results) => {
+      const newCard = results.body
+      setCards({ ...cards, [newCard.id]: newCard })
+    })
+  }
+
   return (
-    <div className="deck-container" onClick={() => {}}>
+    <div className="deck-container" onClick={addCard}>
       <section className="deck">
         <div className="deck__logo">
           <svg width="80" height="80" viewBox="0 0 50 50" fill="none">
