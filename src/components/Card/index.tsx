@@ -1,9 +1,8 @@
-import { ReactElement } from 'react'
 import { ICharacter } from '../../types/Character'
 
 import './style.scss'
 
-export default function Card({ data }: { data: ICharacter }): ReactElement {
+export default function Card({ data }: { data: ICharacter }): JSX.Element {
   return (
     <div className="card">
       <img src={data.image} />

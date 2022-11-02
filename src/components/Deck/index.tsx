@@ -1,8 +1,6 @@
-import { ReactElement } from 'react'
-
 import './style.scss'
 
-export default function Deck(): ReactElement {
+export default function Deck(): JSX.Element {
   return (
     <div className="deck-container" onClick={() => {}}>
       <section className="deck">
