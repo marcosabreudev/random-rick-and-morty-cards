@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { useCharacterContext } from "../../App"
+import { useCharacterContext } from "../../context/Character"
 
 export default function Welcome(): JSX.Element {
   const navigate = useNavigate()

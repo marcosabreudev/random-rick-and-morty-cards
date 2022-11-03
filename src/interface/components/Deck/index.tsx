@@ -1,8 +1,8 @@
-import { ICharacter } from '../../types/Character'
-import { GenerateRandomNumbers } from '../../application/usecases/generate-random-numbers'
-import { RemoteGetCharacters } from '../../data/usecases/get-characters/remote-get-characters'
-import { AxiosHttpClient } from '../../infra/http/axios-http-client'
-import { SetCharacterPoints } from '../../application/usecases/set-character-points'
+import { ICharacter } from '../../../types/Character'
+import { GenerateRandomNumbers } from '../../../application/usecases/generate-random-numbers'
+import { RemoteGetCharacters } from '../../../data/usecases/get-characters/remote-get-characters'
+import { AxiosHttpClient } from '../../../infra/http/axios-http-client'
+import { SetCharacterPoints } from '../../../application/usecases/set-character-points'
 import './style.scss'
 
 function verifyIfAlreadyHasTheNewCharacter(

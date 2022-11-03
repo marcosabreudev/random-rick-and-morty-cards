@@ -1,5 +1,5 @@
-import { ICharacter } from '../../types/Character'
-import { ShuffleCardsCharacters } from '../../application/usecases/shuffle-cards-characters'
+import { ICharacter } from '../../../types/Character'
+import { ShuffleCardsCharacters } from '../../../application/usecases/shuffle-cards-characters'
 
 export default function ShuffleButton({
   cards,
