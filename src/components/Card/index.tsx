@@ -16,13 +16,13 @@ export default function Card({ data }: { data: ICharacter }): JSX.Element {
         </div>
 
         <div className="description__info">
-          <span>First seen in:</span>
-          <p>Rickternal Friendshine of the Spotless Mort</p>
+          <span>Last known location:</span>
+          <p>{data.location.name}</p>
         </div>
 
         <div className="description__info">
           <span>Points:</span>
-          <p className="description__points">25</p>
+          <p className="description__points">{data.points}</p>
         </div>
       </section>
     </div>
