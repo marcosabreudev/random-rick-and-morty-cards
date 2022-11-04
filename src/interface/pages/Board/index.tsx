@@ -3,6 +3,7 @@ import axios from 'axios'
 import Deck from '../../components/Deck'
 import Hand from '../../components/Hand'
 import ShuffleButton from '../../components/ShuffleButton'
+import Loading from '../../components/Loading'
 import { ICharacter } from '../../../types/Character'
 import { RemoteGetCharacters } from '../../../data/usecases/get-characters/remote-get-characters'
 import { AxiosHttpClient } from '../../../infra/http/axios-http-client'
@@ -39,7 +40,7 @@ export default function Board() {
       })
   }, [])
 
-  if (isLoading || !cardContext.cards) return <h1>Loading...</h1>
+  if (isLoading || !cardContext.cards) return <Loading />
 
   return (
     <div className="board">

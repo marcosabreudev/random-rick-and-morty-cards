@@ -10,4 +10,9 @@
   &:hover {
     background-color: $primary-dark;
   }
+
+  &:disabled {
+    background-color: $dark-white;
+    color: $dark-light;
+  }
 }

@@ -8,10 +8,6 @@ export default function Welcome(): JSX.Element {
   const navigate = useNavigate()
   const cardContext = useCardContext()
 
-  useEffect(() => {
-
-  }, [])
-
   return (
     <div className="welcome">
       <div className='welcome__logo'>
@@ -30,6 +26,7 @@ export default function Welcome(): JSX.Element {
         <button
           className='welcome__button' 
           onClick={() => navigate("/board")}
+          disabled={cardContext.name.length < 3 ? true : false}
         >
           Acessar Cartas
         </button>
