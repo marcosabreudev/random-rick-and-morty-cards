@@ -1,6 +1,6 @@
-import { ICharacter } from '../../../types/Character'
 import { ShuffleCardsCharacters } from '../../../application/usecases/shuffle-cards-characters'
 import { useCardContext } from '../../context/CardContext'
+import './style.scss'
 
 export default function ShuffleButton(): JSX.Element {
   const cardContext = useCardContext()
@@ -11,5 +11,5 @@ export default function ShuffleButton(): JSX.Element {
     cardContext.setCards([...toShuffle])
   }
 
-  return <button onClick={shuffleCards}>Embaralhar cartas</button>
+  return <button className='suffle-button' onClick={shuffleCards}>Embaralhar cartas</button>
 }

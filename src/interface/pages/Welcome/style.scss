@@ -1,0 +1,43 @@
+
+@import '../../variables/colors.scss'; 
+@import '../../variables/mixins.scss'; 
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+
+  &__logo {
+    margin-bottom: 32px;
+
+    svg {
+      transform: scale(1.4);
+      fill: $dark;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  &__input-name {
+    border-radius: 4px;
+    padding: 8px 12px;
+    border: 3px solid $dark-white;
+    outline-color: #bbb;
+
+    &:hover {
+      box-shadow: 0px 0px 3px $primary;
+    }
+  }
+
+  &__button {
+    @extend %button;
+  }
+}
