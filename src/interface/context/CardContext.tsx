@@ -1,27 +1,27 @@
 import { createContext, useContext, useState } from "react" 
 import { ICharacter } from "../../types/Character"
 
-export interface ICharacterContext {
+export interface ICardContext {
   cards: ICharacter[] | undefined
   setCards: React.Dispatch<React.SetStateAction<ICharacter[] | undefined>>
   name: string
   setName: React.Dispatch<React.SetStateAction<string>>
 }
-export interface ICharacterContextProvider {
+export interface ICardContextProvider {
   children: JSX.Element
 }
-export const CharacterContext = createContext({} as ICharacterContext)
-export const CharacterContextProvider = ({ children }: ICharacterContextProvider) => {
+export const CardContext = createContext({} as ICardContext)
+export const CardContextProvider = ({ children }: ICardContextProvider) => {
   const [cards, setCards] = useState<ICharacter[]>()
   const [name, setName] = useState<string>('')
 
   return (
-    <CharacterContext.Provider value={{ cards, setCards, name, setName }}>
+    <CardContext.Provider value={{ cards, setCards, name, setName }}>
       {children}
-    </CharacterContext.Provider>
+    </CardContext.Provider>
   )
 }
-export const useCharacterContext = () => {
-  const context = useContext(CharacterContext)
+export const useCardContext = () => {
+  const context = useContext(CardContext)
   return context
 }

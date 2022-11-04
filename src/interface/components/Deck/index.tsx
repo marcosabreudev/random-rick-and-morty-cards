@@ -5,29 +5,26 @@ import { AxiosHttpClient } from '../../../infra/http/axios-http-client'
 import { SetCharacterPoints } from '../../../application/usecases/set-character-points'
 import './style.scss'
 import { HandCardLimit } from '../../../application/usecases/hand-card-limit'
+import { useCardContext } from '../../context/CardContext'
 
 function verifyIfAlreadyHasTheNewCharacter(
   randomId: number,
-  cards: ICharacter[],
+  cards: ICharacter[] | undefined,
 ) {
-  const has = cards.some((character) => character.id === randomId)
+  const has = cards?.some((character) => character.id === randomId)
   if (has) return true
   return false
 }
 
-export default function Deck({
-  cards,
-  setCards,
-}: {
-  cards: ICharacter[]
-  setCards: React.Dispatch<React.SetStateAction<ICharacter[] | undefined>>
-}): JSX.Element {
+export default function Deck(): JSX.Element {
+  const cardContext = useCardContext()
+
   function addCard() {
     const limit = new HandCardLimit().limit
-    if (cards.length === limit) return
+    if (cardContext.cards?.length === limit) return
 
     let randomId = new GenerateRandomNumbers(1, 826).generate()
-    if (verifyIfAlreadyHasTheNewCharacter(randomId[0], cards)) return
+    if (verifyIfAlreadyHasTheNewCharacter(randomId[0], cardContext.cards)) return
 
     const url = 'https://rickandmortyapi.com/api/character'
     const axiosHttpClient = new AxiosHttpClient()
@@ -38,7 +35,7 @@ export default function Deck({
         GenerateRandomNumbers,
       ).set()
 
-      setCards([newCharactersWithPoints, ...cards])
+      if (cardContext.cards) cardContext.setCards([newCharactersWithPoints, ...cardContext.cards])
     })
   }
 

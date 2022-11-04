@@ -8,13 +8,12 @@ import { RemoteGetCharacters } from '../../../data/usecases/get-characters/remot
 import { AxiosHttpClient } from '../../../infra/http/axios-http-client'
 import { GenerateRandomNumbers } from '../../../application/usecases/generate-random-numbers'
 import { SetCharacterPoints } from '../../../application/usecases/set-character-points'
-import { useCharacterContext } from '../../context/Character'
+import { useCardContext } from '../../context/CardContext'
 import './style.scss'
 
 export default function Board() {
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [cards, setCards] = useState<ICharacter[]>()
-  const character = useCharacterContext()
+  const cardContext = useCardContext()
 
   useEffect(() => {
     setIsLoading(true)
@@ -30,7 +29,7 @@ export default function Board() {
         const charactersWithPoints = results.body.map((character: ICharacter) =>
           new SetCharacterPoints(character, GenerateRandomNumbers).set(),
         )
-        setCards(charactersWithPoints)
+        cardContext.setCards(charactersWithPoints)
         setIsLoading(false)
       })
       .catch((error) => {
@@ -40,14 +39,14 @@ export default function Board() {
       })
   }, [])
 
-  if (isLoading || !cards) return <h1>Loading...</h1>
+  if (isLoading || !cardContext.cards) return <h1>Loading...</h1>
 
   return (
     <div className="board">
-      <span>{character.name}</span>
-      <Deck cards={cards} setCards={setCards} />
-      <ShuffleButton cards={cards} setCards={setCards} />
-      <Hand cards={cards} />
+      <span>{cardContext.name}</span>
+      <Deck />
+      <ShuffleButton />
+      <Hand />
     </div>
   )
 }

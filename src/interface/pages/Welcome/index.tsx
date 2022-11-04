@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom"
-import { useCharacterContext } from "../../context/Character"
+import { useCardContext } from "../../context/CardContext"
 
 export default function Welcome(): JSX.Element {
   const navigate = useNavigate()
-  const character = useCharacterContext()
+  const character = useCardContext()
 
   function navigateToBoard() {
     character.setName('Daniel')

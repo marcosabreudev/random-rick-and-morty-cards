@@ -1,18 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Welcome from "./interface/pages/Welcome"
 import Board from './interface/pages/Board'
-import { CharacterContextProvider } from "./interface/context/Character"
+import { CardContextProvider } from "./interface/context/CardContext"
 
 function App() {
   return (
-    <CharacterContextProvider>
+    <CardContextProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/board" element={<Board />} />
         </Routes>
       </BrowserRouter>
-    </CharacterContextProvider>
+    </CardContextProvider>
   )
 }
 
