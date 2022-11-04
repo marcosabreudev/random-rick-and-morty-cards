@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Deck from '../../components/Deck'
 import Hand from '../../components/Hand'
@@ -15,8 +16,11 @@ import './style.scss'
 export default function Board() {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const cardContext = useCardContext()
+  const navigate = useNavigate()
 
   useEffect(() => {
+    if (!cardContext.name) return navigate('/')
+
     setIsLoading(true)
 
     const url = 'https://rickandmortyapi.com/api/character'
