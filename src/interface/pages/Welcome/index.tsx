@@ -6,7 +6,6 @@ export default function Welcome(): JSX.Element {
   const character = useCharacterContext()
 
   function navigateToBoard() {
-    // navigate("/board", { state: { name: "Marcos" } })
     character.setName('Daniel')
     navigate("/board")
   }

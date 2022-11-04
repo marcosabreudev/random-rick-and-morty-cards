@@ -4,6 +4,7 @@ import { RemoteGetCharacters } from '../../../data/usecases/get-characters/remot
 import { AxiosHttpClient } from '../../../infra/http/axios-http-client'
 import { SetCharacterPoints } from '../../../application/usecases/set-character-points'
 import './style.scss'
+import { HandCardLimit } from '../../../application/usecases/hand-card-limit'
 
 function verifyIfAlreadyHasTheNewCharacter(
   randomId: number,
@@ -22,7 +23,8 @@ export default function Deck({
   setCards: React.Dispatch<React.SetStateAction<ICharacter[] | undefined>>
 }): JSX.Element {
   function addCard() {
-    if (cards.length === 8) return
+    const limit = new HandCardLimit().limit
+    if (cards.length === limit) return
 
     let randomId = new GenerateRandomNumbers(1, 826).generate()
     if (verifyIfAlreadyHasTheNewCharacter(randomId[0], cards)) return

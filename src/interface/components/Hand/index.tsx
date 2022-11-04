@@ -1,4 +1,4 @@
-import { ICharacter } from '../../types/Character'
+import { ICharacter } from '../../../types/Character'
 import Card from '../Card'
 import './style.scss'
 
