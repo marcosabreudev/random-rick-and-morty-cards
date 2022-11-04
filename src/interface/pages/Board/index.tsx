@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 import Deck from '../../components/Deck'
 import Hand from '../../components/Hand'
@@ -15,7 +14,6 @@ import './style.scss'
 export default function Board() {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [cards, setCards] = useState<ICharacter[]>()
-  const location = useLocation()
   const character = useCharacterContext()
 
   useEffect(() => {
