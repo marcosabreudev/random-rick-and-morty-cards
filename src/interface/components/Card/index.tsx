@@ -5,7 +5,10 @@ import './style.scss'
 export default function Card({ data }: { data: ICharacter }): JSX.Element {
   return (
     <div className="card">
-      <img src={data.image} />
+      <div className='card__header'>
+        <img src={data.image} alt={data.name} />
+        <span className="card__points">{data.points}</span>
+      </div>
 
       <section className="description">
         <div className="description__info">
@@ -16,13 +19,8 @@ export default function Card({ data }: { data: ICharacter }): JSX.Element {
         </div>
 
         <div className="description__info">
-          <span>Last known location:</span>
+          <span className='description__label'>Last known location:</span>
           <p>{data.location.name}</p>
-        </div>
-
-        <div className="description__info">
-          <span>Points:</span>
-          <p className="description__points">{data.points}</p>
         </div>
       </section>
     </div>

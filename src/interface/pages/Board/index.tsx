@@ -5,6 +5,7 @@ import Deck from '../../components/Deck'
 import Hand from '../../components/Hand'
 import ShuffleButton from '../../components/ShuffleButton'
 import Loading from '../../components/Loading'
+import Logo from '../../components/Logo'
 import { ICharacter } from '../../../types/Character'
 import { RemoteGetCharacters } from '../../../data/usecases/get-characters/remote-get-characters'
 import { AxiosHttpClient } from '../../../infra/http/axios-http-client'
@@ -48,7 +49,10 @@ export default function Board() {
 
   return (
     <div className="board">
-      <span>{cardContext.name}</span>
+      <div className='board__header'>
+        <Logo />
+        <span className='board__players-name'>{cardContext.name}</span>
+      </div>
       <Deck />
       <ShuffleButton />
       <Hand />

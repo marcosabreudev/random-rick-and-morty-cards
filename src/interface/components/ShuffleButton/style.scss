@@ -1,6 +1,10 @@
 @import '../../variables/colors'; 
 @import '../../variables/mixins.scss';
 
+.suffle-butto-area {
+  margin: 0 auto;
+}
+
 .suffle-button {
   @extend %button;
   max-width: 200px;

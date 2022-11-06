@@ -11,5 +11,9 @@ export default function ShuffleButton(): JSX.Element {
     cardContext.setCards([...toShuffle])
   }
 
-  return <button className='suffle-button' onClick={shuffleCards}>Embaralhar cartas</button>
+  return (
+    <div className='suffle-butto-area'>
+      <button className='suffle-button' onClick={shuffleCards}>Embaralhar cartas</button>
+    </div>
+  )
 }

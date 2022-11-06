@@ -22,7 +22,7 @@ export default function Deck(): JSX.Element {
 
   function addCard() {
     const limit = new HandCardLimit().limit
-    if (cardContext.cards?.length === limit) return
+    if (cardContext.cards?.length === limit) return alert('Você atingiu o limite de cartas!')
 
     let randomId = new GenerateRandomNumbers(1, 826).generate()
     if (verifyIfAlreadyHasTheNewCharacter(randomId[0], cardContext.cards)) return
@@ -46,7 +46,6 @@ export default function Deck(): JSX.Element {
         <div className="deck__logo">
           <Logo />
         </div>
-        <h2>Rick and Morty</h2>
       </section>
     </div>
   )

@@ -16,3 +16,12 @@
     color: $dark-light;
   }
 }
+
+@mixin card($height: 365px) {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: $height;
+  border: 5px solid $dark-white;
+  border-radius: 8px;
+}
