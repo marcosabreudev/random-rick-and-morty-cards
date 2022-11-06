@@ -12,7 +12,7 @@ export class AxiosHttpClient implements HttpClient<any> {
         cancelToken: axiosSource.token,
       })
     } catch (error) {
-      return console.log(error)
+      return error
     }
 
     return {

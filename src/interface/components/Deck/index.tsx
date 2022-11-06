@@ -3,10 +3,10 @@ import { GenerateRandomNumbers } from '../../../application/usecases/generate-ra
 import { RemoteGetCharacters } from '../../../data/usecases/get-characters/remote-get-characters'
 import { AxiosHttpClient } from '../../../infra/http/axios-http-client'
 import { SetCharacterPoints } from '../../../application/usecases/set-character-points'
-import './style.scss'
 import { HandCardLimit } from '../../../application/usecases/hand-card-limit'
 import { useCardContext } from '../../context/CardContext'
 import Logo from '../Logo'
+import './style.scss'
 
 function verifyIfAlreadyHasTheNewCharacter(
   randomId: number,
